@@ -1,26 +1,14 @@
 import cv2
 
 
-def mean_filter(input_path, output_path, kernel_size=3):
+def mean_filter(image, kernel_size=5):
     """
-    Lọc trung bình (Mean Filter).
-
-    kernel_size: kích thước kernel, ví dụ 3, 5, 7.
+    Bộ lọc trung bình (Mean / Average Filter) làm mịn ảnh.
     """
-
-    # Đọc ảnh
-    image = cv2.imread(input_path)
-
     if image is None:
-        raise ValueError(f"Không thể đọc ảnh: {input_path}")
+        raise ValueError("Ảnh đầu vào không hợp lệ.")
 
-    # Áp dụng Mean Filter
-    result = cv2.blur(
-        image,
-        (kernel_size, kernel_size)
-    )
+    if isinstance(kernel_size, int):
+        kernel_size = (kernel_size, kernel_size)
 
-    # Lưu ảnh
-    cv2.imwrite(output_path, result)
-
-    return result
+    return cv2.blur(image, kernel_size)

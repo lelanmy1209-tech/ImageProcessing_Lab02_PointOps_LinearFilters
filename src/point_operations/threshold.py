@@ -1,32 +1,19 @@
 import cv2
 
 
-def threshold_image(input_path, output_path, threshold=128):
+def threshold_image(image, threshold=128):
     """
     Chuyển ảnh sang ảnh nhị phân bằng phương pháp cắt ngưỡng.
-
-    Pixel >= threshold  -> 255
-    Pixel < threshold   -> 0
+    Cập nhật nhận vào numpy array thay vì đường dẫn.
     """
-
-    # Đọc ảnh
-    image = cv2.imread(input_path)
-
     if image is None:
-        raise ValueError(f"Không thể đọc ảnh: {input_path}")
+        raise ValueError("Ảnh đầu vào không hợp lệ.")
 
-    # Chuyển sang ảnh xám
-    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    # Nếu là ảnh màu 3 kênh thì chuyển về ảnh xám trước khi cắt ngưỡng
+    if len(image.shape) == 3:
+        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    else:
+        gray = image
 
-    # Cắt ngưỡng
-    _, result = cv2.threshold(
-        gray,
-        threshold,
-        255,
-        cv2.THRESH_BINARY
-    )
-
-    # Lưu ảnh
-    cv2.imwrite(output_path, result)
-
+    _, result = cv2.threshold(gray, threshold, 255, cv2.THRESH_BINARY)
     return result

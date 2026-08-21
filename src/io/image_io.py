@@ -1,49 +1,40 @@
 import cv2
-import os
+import numpy as np
+from pathlib import Path
 
 
 def read_image(image_path):
     """
-    Đọc ảnh từ đường dẫn.
+    Đọc ảnh hỗ trợ đường dẫn tiếng Việt có dấu.
     """
-    if not os.path.exists(image_path):
-        raise FileNotFoundError(f"Không tìm thấy ảnh: {image_path}")
+    path_str = str(image_path)
+    
+    # Kiểm tra file có tồn tại không trước khi đọc
+    if not Path(path_str).is_file():
+        raise FileNotFoundError(f"Thư mục không có file ảnh: {path_str}")
 
-    image = cv2.imread(image_path)
+    image = cv2.imdecode(np.fromfile(path_str, dtype=np.uint8), cv2.IMREAD_COLOR)
 
     if image is None:
-        raise ValueError(f"Không thể đọc ảnh: {image_path}")
+        raise ValueError(f"File ảnh bị hỏng hoặc không định dạng được: {path_str}")
 
     return image
 
 
 def save_image(image, output_path):
     """
-    Lưu ảnh vào đường dẫn chỉ định.
+    Lưu ảnh hỗ trợ đường dẫn tiếng Việt có dấu.
     """
-    output_dir = os.path.dirname(output_path)
+    path = Path(output_path)
+    path.parent.mkdir(parents=True, exist_ok=True)
 
-    if output_dir:
-        os.makedirs(output_dir, exist_ok=True)
+    ext = path.suffix if path.suffix else ".jpg"
+    is_success, buffer = cv2.imencode(ext, image)
 
-    success = cv2.imwrite(output_path, image)
-
-    if not success:
-        raise ValueError(f"Không thể lưu ảnh: {output_path}")
-
-    return output_path
-
-
-def get_image_size(image):
-    """
-    Lấy kích thước ảnh.
-    Trả về: width, height, channels
-    """
-    height, width = image.shape[:2]
-
-    if len(image.shape) == 3:
-        channels = image.shape[2]
+    if is_success:
+        with open(path, "wb") as f:
+            buffer.tofile(f)
+        print(f"Đã lưu: {path.name}")
+        return True
     else:
-        channels = 1
-
-    return width, height, channels
+        raise ValueError(f"Không thể lưu ảnh: {path}")
