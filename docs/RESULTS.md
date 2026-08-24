@@ -116,14 +116,22 @@ Nhóm dùng `demo_advanced.py` chạy toàn bộ 7 kỹ thuật trên cùng mộ
 **Ảnh gốc (grayscale):**
 ![Original](images/00_original_gray.png)
 
+
+
 **Sobel — làm nổi bật cạnh:**
 ![Sobel](images/01_sobel.png)
+
+
 
 **Median Filter — khử nhiễu, giữ chi tiết:**
 ![Median](images/06_median.png)
 
+
+
 **Bilateral Filter — làm mờ nhưng giữ cạnh:**
 ![Bilateral](images/07_bilateral.png)
+
+
 
 **Bảng tổng hợp 8 ảnh so sánh (Original + 7 kỹ thuật):**
 ![Comparison](images/comparison.png)
