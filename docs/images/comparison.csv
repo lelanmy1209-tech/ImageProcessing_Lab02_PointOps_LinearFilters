@@ -1,0 +1,8 @@
+﻿method,category,kernel_or_parameters,runtime_seconds,mean_pixel,std_pixel,note
+Sobel,Edge,3x3 X/Y kernels,6.5609,26.62,35.50,Phát hiện cạnh bằng gradient X/Y.
+Prewitt,Edge,3x3 X/Y kernels,6.5669,26.40,35.23,Phát hiện cạnh bằng gradient X/Y.
+Custom Blur,Custom Kernel,3x3 mean / 9,3.4099,107.48,62.45,Kernel tự thiết kế trong custom_kernel.py.
+Custom Sharpen,Custom Kernel,3x3 sharpening,3.2010,110.49,78.80,Kernel tự thiết kế trong custom_kernel.py.
+Custom Edge,Custom Kernel,3x3 edge kernel,3.4727,31.28,59.47,Kernel tự thiết kế trong custom_kernel.py.
+Median,Nonlinear,kernel=3,16.9565,108.26,64.13,Giảm nhiễu bằng giá trị trung vị.
+Bilateral,Nonlinear,"k=5, sigma_s=2, sigma_c=50",9.4883,107.51,62.85,Giảm nhiễu nhưng cố gắng giữ biên.
