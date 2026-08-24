@@ -1,5 +1,6 @@
 # Bài Tập Xử Lý Ảnh Nâng Cao — Đánh giá — Demo — Kết luận
-### Thành viên 3 | Image Processing Lab 02 – Point Operations & Linear Filters
+
+*Nhóm 5 — Image Processing Lab 02: Point Operations & Linear Filters*
 
 ---
 
@@ -141,4 +142,3 @@ Nhóm dùng `demo_advanced.py` chạy toàn bộ 7 kỹ thuật trên cùng mộ
 
 ---
 
-*Nhóm 5 — Image Processing Lab 02: Point Operations & Linear Filters*
