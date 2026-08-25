@@ -54,8 +54,6 @@ def blur_kernel():      # làm mờ — lấy trung bình 3x3
 def sharpen_kernel():   # làm sắc nét
     return np.array([[0,-1,0],[-1,5,-1],[0,-1,0]], dtype=np.float64)
 
-def edge_kernel():      # phát hiện cạnh kiểu Laplacian
-    return np.array([[-1,-1,-1],[-1,8,-1],[-1,-1,-1]], dtype=np.float64)
 ```
 Quy trình: **Ảnh đầu vào → chọn/thiết kế kernel → tích chập (`apply_custom_kernel`) → clip giá trị về [0,255] → ảnh kết quả.**
 
