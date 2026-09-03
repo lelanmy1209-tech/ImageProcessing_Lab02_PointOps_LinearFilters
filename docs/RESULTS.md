@@ -69,7 +69,7 @@ def median_filter_gray(image, kernel_size=3):
     for i in range(height):
         for j in range(width):
             region = padded_image[i:i+kernel_size, j:j+kernel_size]
-            result[i, j] = np.median(region)   # lấy trung vị thay vì trung bình
+            result[i, j] = np.median(region)   # lấy trung vị 
     return result
 ```
 
