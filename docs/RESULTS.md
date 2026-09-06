@@ -140,7 +140,7 @@ Nhóm dùng `demo_advanced.py` chạy toàn bộ 7 kỹ thuật trên cùng mộ
 
 - Project đi từ các phép toán điểm ảnh cơ bản (brightness, contrast, negative, threshold) → bộ lọc tuyến tính (Mean, Gaussian) → kỹ thuật nâng cao (Edge Detection, Custom Kernel, bộ lọc phi tuyến).
 - **Không có phương pháp nào tốt nhất tuyệt đối** — mỗi kỹ thuật phù hợp một mục đích:
-  - Cần tìm biên/contour → Sobel, Prewitt.
+  - Cần tìm cạnh → Sobel, Prewitt.
   - Cần hiệu ứng tùy biến → Custom Kernel.
   - Cần khử nhiễu mạnh, giữ chi tiết → Median.
   - Cần khử nhiễu mà vẫn giữ cạnh sắc nét → Bilateral.
