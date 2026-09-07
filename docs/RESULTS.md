@@ -109,25 +109,7 @@ Nhóm dùng `demo_advanced.py` chạy toàn bộ 7 kỹ thuật trên cùng mộ
 - Sobel và Prewitt cho kết quả rất giống nhau về mặt số liệu (mean/std gần bằng nhau), đúng như lý thuyết vì cùng nguyên lý gradient.
 - Bilateral và Median có mean/std gần nhau, nhưng Bilateral giữ cạnh tốt hơn nhờ cơ chế 2 trọng số.
 
-### Ảnh minh họa
 
-**Ảnh gốc (grayscale):**
-![Original](images/00_original_gray.png)
-
-
-
-**Sobel — làm nổi bật cạnh:**
-![Sobel](images/01_sobel.png)
-
-
-
-**Median Filter — khử nhiễu, giữ chi tiết:**
-![Median](images/06_median.png)
-
-
-
-**Bilateral Filter — làm mờ nhưng giữ cạnh:**
-![Bilateral](images/07_bilateral.png)
 
 
 
